@@ -1,0 +1,44 @@
+main{
+    min-height: 80vh;
+}
+
+a {
+    color: #4550E6;
+    text-decoration: none;
+    background-color: transparent;
+}
+.custom-btn-primary {
+    background: #4550E6 !important;
+}
+
+/* HEADER SECTION STARTS */
+.header {
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.1);
+    background: #fff;
+}
+
+.site-logo .navbar-brand {
+    font-size: 2rem;
+    font-weight: 600;
+    padding-top: 0;
+}
+
+.navbar-toggler span:nth-child(1), .navbar-toggler span:nth-child(3) {
+    transition: transform .35s ease-in-out;
+}
+
+.navbar-toggler span {
+    display: block;
+    background-color: #4550E6;
+    height: 3px;
+    width: 24px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    transform: rotate(0deg);
+    position: relative;
+    left: 0;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    opacity: 1;
+    border-radius: 1px;
+}
