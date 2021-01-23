@@ -1,7 +1,21 @@
 import React from 'react'
+import { NavDropdown } from 'react-bootstrap';
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom'
+import { LinkContainer } from 'react-router-bootstrap'
+import { logout } from "../actions/userActions";
 
-const Header = () => {
+const Header = ({ history }) => {
+    const dispatch = useDispatch();
+
+    const userLogin = useSelector((state) => state.userLogin);
+    const { userInfo } = userLogin;
+
+    const logoutHandler = () => {
+        //LOGOUT
+        dispatch(logout());
+    }
+
     return (
         <header class="header fixed-top">
             <div class="branding">
@@ -21,21 +35,33 @@ const Header = () => {
 
                         <div class="collapse navbar-collapse py-3 py-lg-0" id="navigation">
                             <ul class="navbar-nav ml-lg-auto">
+                                {userInfo ? (
+                                    <NavDropdown title={userInfo.name} id="username">
+                                        <LinkContainer to='/dashboard'>
+                                            <NavDropdown.Item>Dashboard</NavDropdown.Item>
+                                        </LinkContainer>
+                                        <LinkContainer to='/'>
+                                            <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
+                                        </LinkContainer>
+                                    </NavDropdown>
+                                ) : (
+                                        <>
+                                            <li class="nav-item mr-lg-4">
+                                                <Link class="nav-link" to="/login">Login</Link>
+                                            </li>
+                                            <li class="nav-item mr-lg-0 mt-3 mt-lg-0">
+                                                <Link class="btn custom-btn-primary text-white" to="/signup">Sign up</Link>
+                                            </li>
+                                        </>
+                                    )}
 
-                                <li class="nav-item mr-lg-4">
-                                    <Link class="nav-link" to="/login">Login</Link>
-                                </li>
-                                <li class="nav-item mr-lg-0 mt-3 mt-lg-0">
-                                    <Link class="btn custom-btn-primary text-white" to="/signup">Sign up</Link>
-                                </li>
+
                             </ul>
                         </div>
                     </nav>
 
                 </div>
-                {/* <!--//container--> */}
             </div>
-            {/* <!--//branding--> */}
         </header>
     )
 }
