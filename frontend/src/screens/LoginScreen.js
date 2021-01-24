@@ -19,7 +19,7 @@ const LoginScreen = ({ history, location }) => {
   const userLogin = useSelector((state) => state.userLogin);
   const { loading, error, userInfo } = userLogin;
 
-  const redirect = location.search ? location.search.split("=")[1] : "/dasboard";
+  const redirect = location.search ? location.search.split("=")[1] : "/dashboard";
 
   useEffect(() => {
     window.scrollTo(0, 0);

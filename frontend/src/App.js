@@ -6,6 +6,9 @@ import Footer from './components/Footer'
 import Homescreen from './screens/HomeScreen'
 import LoginScreen from './screens/LoginScreen'
 import RegisterScreen from './screens/RegisterScreen';
+import ProfileScreen from './screens/ProfileScreen';
+import UserListScreen from './screens/UserListScreen';
+import LeaveRequestEditScreen from './screens/LeaveRequestEditScreen';
 
 const App = () => {
   return (
@@ -16,6 +19,9 @@ const App = () => {
           <Container>
             <Route path='/signup' component={RegisterScreen} />
             <Route path='/login' component={LoginScreen} />
+            <Route path='/leaverequest/:id/edit' component={LeaveRequestEditScreen} />
+            <Route path='/dashboard' component={ProfileScreen} />
+            <Route path='/admin/userlist' component={UserListScreen} />
             <Route path='/' component={Homescreen} exact />
           </Container>
         </main>

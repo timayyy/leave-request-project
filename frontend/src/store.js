@@ -6,11 +6,33 @@ import {
   userLoginReducer,
   userRegisterReducer,
   userListReducer,
+  userDeleteReducer,
+  userDetailsReducer,
+  userUpdateProfileReducer
 } from "./reducers/userReducers";
+import {
+  leaveRequestListReducer,
+  leaveRequestListMyReducer,
+  leaveRequestCreateReducer,
+  leaveRequestDetailsReducer,
+  leaveRequestUpdateReducer,
+  leaveRequestApproveReducer,
+  leaveRequestRejectReducer
+} from "./reducers/leaveRequestReducers";
 const reducer = combineReducers({
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
+  userDetails: userDetailsReducer,
+  userUpdateProfile: userUpdateProfileReducer,
   userList: userListReducer,
+  userDelete: userDeleteReducer,
+  leaveRequestList: leaveRequestListReducer,
+  leaveRequestDetails: leaveRequestDetailsReducer,
+  leaveRequestListMy: leaveRequestListMyReducer,
+  leaveRequestCreate: leaveRequestCreateReducer,
+  leaveRequestUpdate: leaveRequestUpdateReducer,
+  leaveRequestApprove: leaveRequestApproveReducer,
+  leaveRequestReject: leaveRequestRejectReducer,
   // orderCreate: orderCreateReducer,
   // orderDetails: orderDetailsReducer,
   // orderPay: orderPayReducer,
